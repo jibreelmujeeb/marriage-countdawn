@@ -1,41 +1,48 @@
+// Show the counter section
 const showCounter = () => {
-    document.querySelector('.counter').style.display = 'flex'
-}
+    document.querySelector('.counter').style.display = 'flex';
+};
 
+// Hide the counter section
 const cancelCounter = () => {
-    document.querySelector('.counter').style.display = 'none'
-}
+    document.querySelector('.counter').style.display = 'none';
+};
 
+// Countdown logic
 const countDown = () => {
-    let countDownDate = new Date('2025-02-01')
-    let now = new Date()
-    let difference = countDownDate - now
-    let date = new Date(difference)
-    let day = date.getDate();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
+    let countDownDate = new Date('2025-02-01').getTime(); // Target date
+    let now = new Date().getTime(); // Current date
+    let difference = countDownDate - now; // Time difference in milliseconds
 
-    document.getElementById('day').innerHTML = day
-    document.getElementById('hour').innerHTML = hours
-    document.getElementById('minute').innerHTML = minutes
-    document.getElementById('second').innerHTML = seconds
-    if (difference == 0) {
-        document.getElementById('theDay').style.display = "block"
-        document.getElementById('theDay').innerHTML = "It's your day, HML R&N!!!"
+    if (difference <= 0) {
+        // If the countdown is over
+        document.getElementById('theDay').style.display = 'block';
+        document.getElementById('theDay').innerHTML = "It's your day, HML R&N!!!";
+        document.querySelector('.showCounter').style.display = 'none'; // Hide counter
+        return; // Stop the function
     }
-}
 
-setInterval(() => {
-    countDown()
-}, 1000);
+    // Calculate time units
+    let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
+    // Update the DOM
+    document.getElementById('day').innerHTML = days;
+    document.getElementById('hour').innerHTML = hours;
+    document.getElementById('minute').innerHTML = minutes;
+    document.getElementById('second').innerHTML = seconds;
+};
 
+// Call the countdown every second
+setInterval(countDown, 1000);
 
-document.getElementById('whatsappButton').addEventListener('click', function() {
-    const phoneNumber = '+2349029789731'; 
-    const message = encodeURIComponent("Hello, Can you design a marriage count down website for me?");
-
+// WhatsApp button functionality
+document.getElementById('whatsappButton').addEventListener('click', function () {
+    const phoneNumber = '+2349029789731'
+    
+    const message = encodeURIComponent("Hello, Can you design a marriage countdown website for me?");
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappURL, '_blank');
 });

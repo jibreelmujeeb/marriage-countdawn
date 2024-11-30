@@ -138,6 +138,10 @@ header button:hover {
     align-items: center;
     display: none;
 }
+.counter {
+    display: none; /* Initially hidden */
+}
+
 
 .innerCounter {
     width: 40%;
