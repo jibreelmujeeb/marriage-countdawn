@@ -42,7 +42,7 @@ setInterval(countDown, 1000);
 document.getElementById('whatsappButton').addEventListener('click', function () {
     const phoneNumber = '+2349029789731'
     
-    const message = encodeURIComponent("Hello, Can you design a marriage countdown website for me?");
+    const message = encodeURIComponent("Your beautiful wishes have made our day even more special. Thank you from the bottom of our hearts!");
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappURL, '_blank');
 });
