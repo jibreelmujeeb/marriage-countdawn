@@ -79,7 +79,7 @@ header button:hover {
 
 .secondBody {
     background-color: rgb(121, 190, 252);
-    height: 48vh;
+    height: 68vh;
     position: relative;
 }
 
@@ -113,7 +113,7 @@ header button:hover {
     border-radius: 9px;
     padding: 7px;
     position: absolute;
-    top: -75%;
+    top: -50%;
     left: 3%;
     border: 2px rgba(255, 255, 255, 0.815) solid;
 }
@@ -201,6 +201,8 @@ header button:hover {
     color: orangered;
     display: none;
 }
+
+
 
 
 @media screen and (max-width:600px) {
